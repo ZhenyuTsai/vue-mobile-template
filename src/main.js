@@ -8,11 +8,13 @@ import FastClick from 'fastclick'
 import 'amfe-flexible/index.js'
 import 'mand-mobile/lib/mand-mobile.css'
 import 'vant/lib/index.css'
+import './assets/icon-font/iconfont.css'
 import Vant from 'vant'
-import { Button } from 'mand-mobile'
+import { Button, Icon } from 'mand-mobile'
 Vue.config.productionTip = false
 Vue.use(Vant)
 Vue.component(Button.name, Button)
+Vue.component(Icon.name, Icon)
 
 // 初始化浏览器类型，设置系统、平台类型参数
 store.dispatch('initSystemType')

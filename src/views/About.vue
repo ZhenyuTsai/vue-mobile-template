@@ -5,6 +5,9 @@
     <van-button type="info">信息按钮</van-button>
     <div class="box">测试盒子</div>
     <div class="box1">测试盒子2</div>
+    <i class="iconfont icon-appreciate"></i>
+    <span class="iconfont icon-locationfill"></span>
+    <van-icon name="chat-o" />
   </div>
 </template>
 <style lang="less" scoped>
