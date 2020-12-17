@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+import user from './modules/user'
+import system from './modules/system'
+import auth from './modules/auth'
+import wxSign from './modules/wxSign'
+import common from './modules/common'
+/* eslint-disable */
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = new Vuex.Store({
+  strict: true, // process.env.NODE_ENV !== 'development',
   modules: {
-  }
+    user,
+    system,
+    auth,
+    wxSign,
+    common
+  },
+  mutations: {}
 })
+
+export default store
