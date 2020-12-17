@@ -8,7 +8,7 @@ import wxwork from '@/utils/wxwork'
 export default {
   doFilter () {
     router.beforeEach((to, from, next) => {
-      if (store.getters.getType == 'wx' &&
+      if (store.getters.getType === 'wx' &&
         validator.isEmpty(to.meta.wx) &&
         validator.isEmpty(to.meta.wx.sign) &&
         to.meta.wx.sign &&

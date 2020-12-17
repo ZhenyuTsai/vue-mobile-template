@@ -12,31 +12,31 @@ export default {
     params.token = store.getters.getToken
     return http.get(URL + '/account/check', params)
   },
-  //获取第三方信息
+  // 获取第三方信息
   thirdInfo (params) {
     return http.get(URL + '/third/login', params)
   },
-  //使用第三方账户进行账户登陆
+  // 使用第三方账户进行账户登陆
   thirdLogin (params) {
     return http.get(URL + '/third/login', params)
   },
-  //第三方快捷登陆
+  // 第三方快捷登陆
   thirdAuth (params) {
     params.type = store.getters.getType
     params.system = store.getters.getSystem
     return http.get(URL + '/third/auth', params)
   },
-  //登陆
+  // 登陆
   login (params) {
     params.type = store.getters.getType
     params.system = store.getters.getSystem
     return http.get(URL + '/account/login', params)
   },
-  //获取用户信息
+  // 获取用户信息
   accountInfo (params) {
     return http.post(URL + '/account/info', params)
   },
-  //发送短信验证码
+  // 发送短信验证码
   smsSend (params) {
     params.type = store.getters.getType
     params.system = store.getters.getSystem
@@ -45,7 +45,7 @@ export default {
       contentType: 'form'
     })
   },
-  //微信授权分享
+  // 微信授权分享
   chImg (params) {
     params.type = store.getters.getType
     params.system = store.getters.getSystem
@@ -66,9 +66,9 @@ export default {
   getVideo (params) {
     return http.get(VIDEO_URL + '/analysis/video/json', params)
   },
-  addVideo(params){
+  addVideo (params) {
     return http.post(VIDEO_URL + '/analysis/video', {
-      data: params,
+      data: params
       // contentType: 'form'
     })
   }

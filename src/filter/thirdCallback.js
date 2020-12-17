@@ -2,20 +2,20 @@ import router from '@/router/'
 import store from '@/store'
 import $customer from '@/api/customer'
 import $wxwork from '@/api/wxwork'
-import { validator } from '@/utils/common'
-import common from '@/utils/common'
+import common, { validator } from '@/utils/common'
+
 function doFilter () {
   router.beforeEach((to, from, next) => {
-
-    let thirType = store.getters.getThirdType
-    //非第三方环境不处理
+    const thirType = store.getters.getThirdType
+    // 非第三方环境不处理
     if (!validator.isEmpty(thirType)) {
       return next()
     }
     if (!to.meta.thirdAuth) {
       return next()
     }
-    let third_redirect_code = common.getUrlCode().code || common.getUrlCode().auth_code
+    // eslint-disable-next-line camelcase
+    const third_redirect_code = common.getUrlCode().code || common.getUrlCode().auth_code
     if (!validator.isEmpty(third_redirect_code)) {
       return next()
     }
@@ -29,12 +29,12 @@ function doFilter () {
           }
         })
       } else {
-        //企业微信通过code登陆
+        // 企业微信通过code登陆
         $wxwork.judgmentSystem({
           code: third_redirect_code,
           systemType: store.getters.getType
         }).then(res => {
-          if (res && res.result == '0') {
+          if (res && res.result === '0') {
             store.dispatch('setToken', res.token)
             store.dispatch('setThirdInfo', { userCode: res.userCode, userName: res.userName, organCode: res.organCode })
             store.dispatch('setSystem', res.systemType)
@@ -68,8 +68,8 @@ function doFilter () {
         } else {
           return next()
         }
-      }else {
-        let character = location.href.indexOf('?code=') != -1 ? '?code=' : '&code='
+      } else {
+        const character = location.href.indexOf('?code=') !== -1 ? '?code=' : '&code='
         location.replace(location.href.substring(0, location.href.indexOf(character)))
       }
       return next()

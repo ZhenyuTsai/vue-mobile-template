@@ -1,5 +1,4 @@
 import http from '@/utils/http'
-import store from "@/store/index"
 
 const URL = process.env.VUE_APP_BASE_ESP
 
@@ -27,5 +26,5 @@ export default {
   getacqOrderList (params) {
     console.log(params)
     return http.get(URL + '/order/normalList', params)
-  },
+  }
 }

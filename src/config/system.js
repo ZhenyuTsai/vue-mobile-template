@@ -41,7 +41,7 @@ const params = [{
     appId: ''
   }
 },
-{ system_type: 'alipay', domain: process.env.VUE_APP_BASEURL, params: { type: 'alipay', system: 'hr', thirdType: 'alipay', appId: process.env.VUE_APP_ALIPAY_APPID } },
+{ system_type: 'alipay', domain: process.env.VUE_APP_BASEURL, params: { type: 'alipay', system: 'hr', thirdType: 'alipay', appId: process.env.VUE_APP_ALIPAY_APPID } }
 ]
 
 export default {

@@ -1,11 +1,10 @@
-// import Vue from 'vue'
-// import Vuex from 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 import user from './modules/user'
 import system from './modules/system'
 import auth from './modules/auth'
 import wxSign from './modules/wxSign'
 import common from './modules/common'
-/* eslint-disable */
 
 Vue.use(Vuex)
 

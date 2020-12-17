@@ -1,3 +1,4 @@
+/* eslint-disable */
 import store from '@/store'
 import {
   validator
@@ -48,7 +49,7 @@ function callAppFuction (params) {
  *        @url：跳通用二级页面必传 跳特殊pageCode非必传
  *        @naviInit：非必传 初始化目标页面标题栏 参数详见appNaviInit方法参数
  *        @businessData:非必传 最小参数 json
- * } params 
+ * } params
  */
 function jumpValue (params={}) {
   if (store.getters.getVisitType != 'app') {
@@ -76,12 +77,12 @@ function jumpValue (params={}) {
  *              @jsData:非必传 H5携带参数 app回调js传入的参数
  *              @imgUrl:非必传 按钮图标地址
  *      @setGoback:非必传 json对象 设置回退键是否显示 不传默认可见
- *              visibility:必传 bool值 
+ *              visibility:必传 bool值
  *      @setVisible:非必传 设置导航栏是否可见 不传默认可见
  *          @visibility:必传 bool
  *      @setClose:非必传 string 1：显示 0：不显示 用于特殊返回 直接结束该导航页面
  *      @setJsFinish:非必传 通知app  js加载完成
- * } params 
+ * } params
  */
 function naviInit (params={}) {
   return new Promise((resolve, reject) => {
@@ -136,7 +137,7 @@ function naviInit (params={}) {
  *          @text：分享内容的文本信息
  *          @btnTitle：分享渠道名称，不传不显示名称
  *      }
- * } params 
+ * } params
  */
 function share (params={}) {
   if (store.getters.getVisitType != 'app') {
@@ -185,7 +186,7 @@ function getToken () {
  *      @count: 必传 int 上传图片数 默认9张 在sourceType是相机时默认为1,
  *      @sizeType：必传 int 上传图片大小,
  *      @sourceType:必传 array 图片来源类型 类型有且仅有  “相册”、”相机”两种渠道
- * } params 
+ * } params
  */
 function verifyIdentity (params={}) {
   return new Promise((resolve, reject) => {
@@ -241,7 +242,7 @@ function outBrowser (params={}) {
  *                  @noncestr：必传 随机字符串
  *                  @sign：必传 签名
  * ·····@jsData：非必传
- * } params 
+ * } params
  * @returns {
  *      @wxPayResult:必传 支付结果 0-成功 1-失败  2-取消
  * } return app回调js方法参数
@@ -298,13 +299,13 @@ function popView () {
  *      @jsFunction: 必传 app支付完回调H5的方法
  *      @jsData： 非必传
  *      @getSystemKey: 非必传 获取info关键字 不传时获取全部信息 支持locationInfo， systemType， uuid
- * } params 
- * 
+ * } params
+ *
  * @returns {
  *      @locationInfo：非必传 地理位置信息 json对象
  *            @longitude：非必传 经度
  *            @latitude：非必传 维度
- *      @systemType：非必传 系统名称 
+ *      @systemType：非必传 系统名称
  *      @uuid：非必传 手机唯一编号
  *      @version：非必传 当前版本
  *      @ip：非必传 当前ip地址（ipv4）
@@ -337,7 +338,7 @@ function systemInfo (params={}) {
  *      @jsData： 非必传
  *      @businessData:必传
  *              @orderStr：必传调起支付宝sdk参数字符串
- * } params 
+ * } params
  */
 function Alipay (params) {
   return new Promise((resolve, reject) => {

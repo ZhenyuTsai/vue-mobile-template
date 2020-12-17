@@ -1,13 +1,14 @@
-// import axios from 'axios'
+/* eslint-disable */
 import store from '../store'
 import qs from 'qs'
 import app from '@/utils/app'
 import app_v2 from '@/utils/app_v2'
+import axios from 'axios'
 import {
   Dialog,
   Toast
 } from 'mand-mobile'
-/* eslint-disable */
+
 axios.defaults.timeout = 600000
 axios.defaults.baseURL = process.env.VUE_APP_API_ROOT
 axios.defaults.headers.post['Content-Type'] = 'application/json charset=UTF-8'
@@ -15,7 +16,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json charset=UTF-8'
 axios.interceptors.request.use(
   config => {
     if (store.getters.getToken) {
-      config.headers['token'] = store.getters.getToken
+      config.headers.token = store.getters.getToken
     }
     return config
   },
@@ -30,7 +31,7 @@ axios.interceptors.response.use(
   response => {
     console.log(response)
     // 通用逻辑，请求出错，全屏弹层提示
-    if ('true' === process.env.VUE_APP_USE_MOCK && !response.data) {
+    if (process.env.VUE_APP_USE_MOCK === 'true' && !response.data) {
       return response
     }
 
@@ -39,15 +40,14 @@ axios.interceptors.response.use(
     if (data && data.code === 0) {
       return response.data.content
     } else {
-      //处理错误
-      if (data.code === 40002) { //此接口没有授权 由于您长时间未操作本次登陆失效，请点击重新登录
+      // 处理错误
+      if (data.code === 40002) { // 此接口没有授权 由于您长时间未操作本次登陆失效，请点击重新登录
         alertReloadMessage('由于您长时间未操作本次登陆失效，请点击重新登录')
-      } else if (data.code === 5001) { //此次请求ajax超时  本次操作请求超时，请重新操作
+      } else if (data.code === 5001) { // 此次请求ajax超时  本次操作请求超时，请重新操作
         alertMessage('本次操作请求超时，请重新操作')
       } else {
         alertMessage('系统请求异常，请重新打开')
       }
-
     }
   },
   error => {
@@ -57,7 +57,7 @@ axios.interceptors.response.use(
       error.message = '系统请求异常'
     }
     alertMessage(error.message)
-    //return Promise.reject(error)
+    // return Promise.reject(error)
   }
 )
 
@@ -67,7 +67,7 @@ function alertReloadMessage (message) {
     confirmText: '重新登录',
     onConfirm: () => {
       // 进行登陆处理
-      let visitType = store.getters.getVisitType
+      const visitType = store.getters.getVisitType
       if (visitType == 'app') {
         // 调用APP的getToken方法处理
         app.getToken().then((res) => {
@@ -99,7 +99,7 @@ function alertReloadMessage (message) {
       } else {
         window.location.reload()
       }
-    },
+    }
   })
 }
 
@@ -110,7 +110,7 @@ function alertMessage (message) {
 export default {
   get (url, params = {}) {
     var data = params || {}
-    data['sendTime'] = new Date().getTime()
+    data.sendTime = new Date().getTime()
     return axios.get(url, {
       params: data
     })
@@ -128,7 +128,7 @@ export default {
   },
   getFile (url, params = {}) {
     var data = params || {}
-    data['sendTime'] = new Date().getTime()
+    data.sendTime = new Date().getTime()
     return axios.get(url, {
       responseType: 'blob',
       params: data
@@ -139,5 +139,5 @@ export default {
     return axios.get(url, {
       params: data
     })
-  },
+  }
 }

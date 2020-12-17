@@ -1,3 +1,5 @@
+/* eslint-disable */
+import Vue from 'vue'
 import validator from '@/utils/validator'
 import store from '@/store'
 import $wx from '@/utils/weixin'
@@ -124,7 +126,7 @@ export default {
   },
   getAgeByBirthday (strBirthday) {
     /**
-     *参数strBirthday已经是正确格式的2017-12-12这样的日期字符串  
+     *参数strBirthday已经是正确格式的2017-12-12这样的日期字符串
      */
     let returnAge = null
     let strBirthdayArr = strBirthday.split('-')

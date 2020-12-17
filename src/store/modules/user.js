@@ -2,9 +2,9 @@
 const state = {
   nickName: null,
   imgUrl: null,
-  userCode: '',//企业微信客服工号
-  userName: '',//企业微信用户姓名
-  organCode: '',//企业微信机构编码
+  userCode: '', // 企业微信客服工号
+  userName: '', // 企业微信用户姓名
+  organCode: '' // 企业微信机构编码
 }
 
 // getters
@@ -13,7 +13,7 @@ const getters = {
   getNickName: state => state.nickName,
   getUserCode: state => state.userCode,
   getUserName: state => state.userName,
-  getOrganCode: state => state.organCode,
+  getOrganCode: state => state.organCode
 }
 
 // actions

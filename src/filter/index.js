@@ -12,7 +12,7 @@ function doFilters () {
   wx.doFilter()
   login.doFilter()
   silentLogin.doFilter()
-  //customer.doFilter()
+  //  customer.doFilter()
 }
 
 export default {

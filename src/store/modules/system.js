@@ -21,22 +21,22 @@ const getters = {
   getThirdType: state => state.thirdType,
   getThirdAppId: state => state.thirdAppId,
   getAppType: state => state.appType,
-  getAliminiFlag: state => state.aliminiFlag,
+  getAliminiFlag: state => state.aliminiFlag
 }
 
 // actions
 const actions = {
   initSystemType ({ commit }) {
     let visitType = CommonUtil.getUserAgentType()
-    let domain = CommonUtil.getDomain()
+    const domain = CommonUtil.getDomain()
     let appType, system, type, thirdType, thirdAppId
 
-    if (visitType == 'ios' || visitType == 'android') {
+    if (visitType === 'ios' || visitType === 'android') {
       appType = visitType
       visitType = 'app'
     }
-    //新增与新版app交互
-    if (visitType == 'ios_v2' || visitType == 'android_v2') {
+    // 新增与新版app交互
+    if (visitType === 'ios_v2' || visitType === 'android_v2') {
       appType = visitType
       visitType = 'app_v2'
     }
@@ -44,8 +44,8 @@ const actions = {
 
     // 遍历config.system.params，获取对应的params参数
     for (let i = 0; i < config.system.params.length; i++) {
-      let obj = config.system.params[i]
-      if (visitType == obj.system_type && domain == obj.domain) {
+      const obj = config.system.params[i]
+      if (visitType === obj.system_type && domain === obj.domain) {
         system = obj.params.system
         type = obj.params.type
         thirdType = obj.params.thirdType

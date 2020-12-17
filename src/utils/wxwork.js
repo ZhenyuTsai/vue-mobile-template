@@ -1,7 +1,6 @@
+/* eslint-disable */
 import store from '@/store'
-import {
-  validator
-} from '@/utils/common'
+import { validator } from '@/utils/common'
 import $customer from '@/api/customer'
 let wxSignParams = {
   signUrl: window.location.href,
@@ -86,7 +85,7 @@ function wxAgentConfig (api) {
   return new Promise(resole => {
     wxwork.agentConfig({
       corpid: process.env.VUE_APP_WXWORK_APPID, // 必填，企业微信的corpid，必须与当前登录的企业一致
-      agentid: process.env.VUE_APP_WXWORK_AGENTID, // 必填，企业微信的应用id 
+      agentid: process.env.VUE_APP_WXWORK_AGENTID, // 必填，企业微信的应用id
       timestamp: wxSignParams.agentConfigParams.timestamp, // 必填，生成签名的时间戳
       nonceStr: wxSignParams.agentConfigParams.nonceStr, // 必填，生成签名的随机串
       signature: wxSignParams.agentConfigParams.signature,// 必填，签名，见附录-JS-SDK使用权限签名算法

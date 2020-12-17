@@ -1,6 +1,6 @@
 const state = {
-  globalMaskShow: false, //全局遮罩
-  lodingShow: false,//加载遮罩
+  globalMaskShow: false, // 全局遮罩
+  lodingShow: false, // 加载遮罩
   title: ''
 }
 

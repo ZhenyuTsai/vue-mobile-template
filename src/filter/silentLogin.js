@@ -1,21 +1,20 @@
 import router from '@/router'
 import store from '@/store'
 import app from '@/utils/app'
+// eslint-disable-next-line camelcase
 import app_v2 from '@/utils/app_v2'
 import $customer from '@/api/customer'
-import common from '@/utils/common'
-import {
-  validator
-} from '@/utils/common'
+import common, { validator } from '@/utils/common'
+
 function doFilter () {
   router.beforeEach((to, from, next) => {
-    if (to.meta.silentLogin == undefined || !to.meta.silentLogin) {
+    if (to.meta.silentLogin === undefined || !to.meta.silentLogin) {
       return next()
     }
     // 判断Token有效性
     if (store.state.auth.token) {
       checkLogin().then(res => {
-        //当 third 无效时 移除
+        // 当 third 无效时 移除
         if (!res.third) {
           store.dispatch('removeThirdToken')
         }
@@ -42,24 +41,24 @@ function checkLogin () {
 }
 function goLogin (to, from, next) {
   // 进行登陆处理
-  let visitType = store.getters.getVisitType
-  if (visitType == 'app') {
+  const visitType = store.getters.getVisitType
+  if (visitType === 'app') {
     // 调用APP的getToken方法处理
     app.getToken().then((res) => {
-      if (res.nativeData && res.nativeData.token && res.nativeData.token != '') {
+      if (res.nativeData && res.nativeData.token && res.nativeData.token !== '') {
         store.dispatch('setToken', res.nativeData.token)
         return next()
       }
     })
-  } else if (visitType == 'app_v2') {
+  } else if (visitType === 'app_v2') {
     // 调用APP的getToken方法处理
     app_v2.getToken().then(res => {
-      if (res.token && res.token != '') {
+      if (res.token && res.token !== '') {
         store.dispatch('setToken', res.token)
         return next()
       }
     })
-  } else if (visitType == 'wx') {
+  } else if (visitType === 'wx') {
     if (!validator.isEmpty(store.getters.getThirdToken)) {
       return next()
     }
@@ -68,19 +67,19 @@ function goLogin (to, from, next) {
     $customer.thirdLogin({
       thirdToken: store.getters.getThirdToken
     }).then(res => {
-      if (res.result == '0') {
+      if (res.result === '0') {
         console.log('HR-Filter [silent login] - third login wx', 'ok')
         store.dispatch('setThirdToken', res.thirdToken)
         store.dispatch('setToken', res.token)
         if (common.getUrlCode().code) {
-          let character = location.href.indexOf('?code=') != -1 ? '?code=' : '&code='
+          const character = location.href.indexOf('?code=') !== -1 ? '?code=' : '&code='
           location.replace(location.href.substring(0, location.href.indexOf(character)))
         }
         return next()
       }
     })
-    //没有thirdToken跳登陆
-  } else if (visitType == 'alipay') {
+    // 没有thirdToken跳登陆
+  } else if (visitType === 'alipay') {
     if (!validator.isEmpty(store.getters.getThirdToken)) {
       return next()
     }
@@ -89,7 +88,7 @@ function goLogin (to, from, next) {
     $customer.thirdLogin({
       thirdToken: store.getters.getThirdToken
     }).then(res => {
-      if (res.result == '0') {
+      if (res.result === '0') {
         console.log('HR-Filter [silent login] - third login alipay', 'ok')
         store.dispatch('setThirdToken', res.thirdToken)
         store.dispatch('setToken', res.token)
