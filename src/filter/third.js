@@ -5,8 +5,8 @@ import common, { validator } from '@/utils/common'
 
 function doFilter () {
   router.beforeEach((to, from, next) => {
-    console.log(from)
-    console.log(to)
+    // console.log(from)
+    // console.log(to)
 
     const thirdType = store.getters.getThirdType
     // 非第三方环境不处理
