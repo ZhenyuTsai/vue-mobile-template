@@ -10,10 +10,13 @@ import './assets/css/base.css'
 import 'mand-mobile/lib/mand-mobile.css'
 import 'vant/lib/index.css'
 import './assets/icon-font/iconfont.css'
-import Vant from 'vant'
+import Vant, { Lazyload } from 'vant'
 import { Button, Icon } from 'mand-mobile'
+
 Vue.config.productionTip = false
 Vue.use(Vant)
+Vue.use(Lazyload)
+Vue.use(Lazyload, { lazyComponent: true })
 Vue.component(Button.name, Button)
 Vue.component(Icon.name, Icon)
 
