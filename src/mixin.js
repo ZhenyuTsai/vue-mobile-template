@@ -6,33 +6,33 @@
  * @LastEditors ZhenYuTsai
  */
 export default (Vue) => {
-  Vue.mixin({
-    methods: {
-      /**
-       * @author ZhenYuTsai
-       * @description 打开全局遮罩
-       * @return {*}
-       * @lastEditors ZhenYuTsai
-       */
-      openLoading () {
-        const app = document.getElementById('app')
-        const loading = document.createElement('div')
-        loading.id = 'loading'
-        app.style.display = 'none'
-        document.body.insertBefore(loading, app)
-      },
-      /**
-       * @author ZhenYuTsai
-       * @description 关闭全局遮罩
-       * @return {*}
-       * @lastEditors ZhenYuTsai
-       */
-      closeLoading () {
-        const loading = document.getElementById('loading')
-        const app = document.getElementById('app')
-        app.style.display = 'block'
-        document.body.removeChild(loading)
-      }
-    }
-  })
+  /**
+   * @author ZhenYuTsai
+   * @description 打开全局遮罩
+   * @return {*}
+   * @lastEditors ZhenYuTsai
+   */
+  const openLoading = () => {
+    const app = document.getElementById('app')
+    const loading = document.createElement('div')
+    loading.id = 'loading'
+    app.style.display = 'none'
+    document.body.insertBefore(loading, app)
+  }
+  /**
+   * @author ZhenYuTsai
+   * @description 关闭全局遮罩
+   * @return {*}
+   * @lastEditors ZhenYuTsai
+   */
+  const closeLoading = () => {
+    const loading = document.getElementById('loading')
+    const app = document.getElementById('app')
+    app.style.display = 'block'
+    document.body.removeChild(loading)
+  }
+  Vue.openLoading = openLoading
+  Vue.prototype.openLoading = openLoading
+  Vue.closeLoading = closeLoading
+  Vue.prototype.closeLoading = closeLoading
 }

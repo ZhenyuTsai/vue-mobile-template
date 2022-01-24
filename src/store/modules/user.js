@@ -7,6 +7,7 @@
  */
 export const name = 'user'
 export default {
+  namespaced: true,
   state: () => ({
 
   }),

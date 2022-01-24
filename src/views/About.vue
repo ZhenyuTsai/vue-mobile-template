@@ -6,10 +6,6 @@
 
 <script>
 export default {
-  created () {
-    // 打开全局遮罩
-    this.openLoading()
-  },
   mounted () {
     // 关闭全局遮罩
     const timer = setTimeout(() => {
