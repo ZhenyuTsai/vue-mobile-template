@@ -21,8 +21,8 @@ axios.interceptors.response.use(
   response => {
     const data = response.data
     if (data && data.code === 0) {
-      return response.data.content
-    } else if (response.data instanceof Blob) {
+      return response.data
+    } else if (data instanceof Blob) {
       return response.data
     } else {
       // 处理错误
@@ -45,19 +45,23 @@ axios.interceptors.response.use(
 )
 
 export default {
-  get (url, params = {}) {
+  get (url, params = {}, options = {}) {
     params.t_request = Math.random()
-    return axios.get(url, {
-      params: params
-    })
+    return axios.get(url, { params, ...options })
   },
-  post (url, params = {}) {
-    return axios.post(url, params)
+  delete (url, params = {}, options = {}) {
+    return axios.delete(url, { params, ...options })
   },
-  put (url, data = {}) {
-    return axios.put(url, data)
+  head (url, params = {}, options = {}) {
+    return axios.head(url, { params, ...options })
   },
-  delete (url, data = {}) {
-    return axios.delete(url, { data })
+  post (url, data = {}, options = {}) {
+    return axios.post(url, { data, ...options })
+  },
+  put (url, data = {}, options = {}) {
+    return axios.put(url, { data, ...options })
+  },
+  patch (url, data = {}, options = {}) {
+    return axios.patch(url, { data, ...options })
   }
 }
