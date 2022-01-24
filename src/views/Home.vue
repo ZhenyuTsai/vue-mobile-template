@@ -2,9 +2,8 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <van-button type="primary" @click="closeLoading">主要按钮</van-button>
+    <van-button type="primary">主要按钮</van-button>
     <van-button type="info">信息按钮</van-button>
-    <div class="box">45545454545454</div>
   </div>
 </template>
 <script>
@@ -32,7 +31,10 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.box{
-  font-size: 40px;
+.home{
+  text-align: center;
+}
+.van-button + .van-button{
+  margin-left: 10px;
 }
 </style>

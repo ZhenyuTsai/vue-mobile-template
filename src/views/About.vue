@@ -1,5 +1,21 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <div>This is an about page</div>
   </div>
 </template>
+
+<script>
+export default {
+  created () {
+    // 打开全局遮罩
+    this.openLoading()
+  },
+  mounted () {
+    // 关闭全局遮罩
+    const timer = setTimeout(() => {
+      this.closeLoading()
+      clearTimeout(timer)
+    }, 1000)
+  }
+}
+</script>

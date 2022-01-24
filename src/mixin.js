@@ -1,13 +1,19 @@
 /**
  * @Version
  * @Author ZhenYuTsai
- * @Descripttion
+ * @Descripttion 全局混入方法
  * @Date 2022-01-21 17:38:44
  * @LastEditors ZhenYuTsai
  */
 export default (Vue) => {
   Vue.mixin({
     methods: {
+      /**
+       * @author ZhenYuTsai
+       * @description 打开全局遮罩
+       * @return {*}
+       * @lastEditors ZhenYuTsai
+       */
       openLoading () {
         const app = document.getElementById('app')
         const loading = document.createElement('div')
@@ -15,6 +21,12 @@ export default (Vue) => {
         app.style.display = 'none'
         document.body.insertBefore(loading, app)
       },
+      /**
+       * @author ZhenYuTsai
+       * @description 关闭全局遮罩
+       * @return {*}
+       * @lastEditors ZhenYuTsai
+       */
       closeLoading () {
         const loading = document.getElementById('loading')
         const app = document.getElementById('app')
