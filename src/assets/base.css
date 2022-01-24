@@ -1,0 +1,94 @@
+/** H5.css **/
+@charset "utf-8";
+
+/* 初始化边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+/* 解决IOS默认滑动很卡的情况 */
+-webkit-overflow-scrolling : touch;
+}
+
+/* 禁止缩放表单 */
+input[type=“submit”], input[type=“reset”], input[type=“button”], input {
+    resize: none;
+    border: none;
+}
+
+/* 取消链接高亮 */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 清除ul、ol的样式 */
+ul,ol {
+    list-style-type: none;
+}
+
+/* 废物利用 */
+b,i,s,u {
+    font-style: normal;
+}
+
+/* 去掉input和button自带两像素的边框 */
+input,button {
+    border: 1px solid #ccc;
+}
+
+/*解决图片底册有空白缝隙*/
+img {
+    vertical-align: top;
+}
+
+/* 清除a标签下划线 */
+a {
+    text-decoration: none;
+}
+
+/* 清除浮动对父类元素的影响 */
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* 左浮动 */
+.fl {
+    float: left;
+}
+
+/* 右浮动 */
+.fr {
+    float: right;
+}
+
+/* 文本溢出省略号 */
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--rows, 1);
+    -webkit-box-orient: vertical;
+}
+
+/* 全局loading */
+#loading {
+    position: fixed;
+    z-index: 88;
+    height: 100vh;
+    width: 100vw;
+    background: #fff url('./loading.gif') center center;
+    background-size: 240px 240px;
+    background-repeat: no-repeat;
+}

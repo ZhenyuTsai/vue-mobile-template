@@ -1,7 +1,7 @@
 /**
  * @Version
  * @Author ZhenYuTsai
- * @Descripttion
+ * @Descripttion 全局过滤器
  * @Date 2022-01-11 11:30:01
  * @LastEditors ZhenYuTsai
  */

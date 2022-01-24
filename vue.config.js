@@ -3,7 +3,7 @@ const FileManagerPlugin = require('filemanager-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-  publicPath: process.env.VUE_APP_BASE_PUBLIC_PATH || './',
+  publicPath: './',
   productionSourceMap: false,
   configureWebpack: config => {
     const prdPlugins = [
@@ -15,12 +15,12 @@ module.exports = {
           warnings: false,
           compress: {
             // 打包时删除console以及debugger，测试环境如需使用console或者debugger请改为false（不要直接删除）
-            drop_console: false,
+            drop_console: true,
             drop_debugger: true
           },
           output: {
             // 去掉注释内容
-            comments: false
+            comments: true
           }
         }
       }),
@@ -28,7 +28,7 @@ module.exports = {
         onEnd: {
           archive: [{
             source: './dist',
-            destination: `./dist/gh-h5-vue-template-${process.VUE_CLI_SERVICE.mode}.tar.gz`,
+            destination: `./dist/h5-vue-template-${process.VUE_CLI_SERVICE.mode}.tar.gz`,
             format: 'tar',
             options: {
               gzip: true,

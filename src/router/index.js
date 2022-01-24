@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -8,18 +7,22 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    props: true,
+    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+    meta: { wxAuth: true, title: '首页' }
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    props: true,
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: { wxAuth: true, title: '关于' }
   },
-  { path: '/test', component: () => import(/* webpackChunkName: "test" */ '../views/Test.vue') }
-]
+  {
+    path: '*',
+    component: () => import(/* webpackChunkName: "error" */ '../views/error.vue'),
+    meta: { wxAuth: true, title: '404' }
+  }]
 
 const router = new VueRouter({
   mode: 'history',
