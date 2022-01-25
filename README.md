@@ -1,24 +1,18 @@
-# vue-mobile-template
+# Vue移动端项目模板
 
-## Project setup
-```
+> 模板内部包含axios接口封装、路由中间件、Zepto工具 、微信JDK、Vuex、Less预处理语言、环境变量配置、全局loading功能、TabBar模块 
+
+## 项目设置
+```powershell
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+### 开发环境编译
+```powershell
+npm run dev
 ```
 
-### Lints and fixes files
+### 生产环境编译
+```powershell
+npm run build-dev
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

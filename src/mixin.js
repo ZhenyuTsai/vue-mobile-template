@@ -8,7 +8,7 @@
 export default (Vue) => {
   /**
    * @author ZhenYuTsai
-   * @description 打开全局遮罩
+   * @description 打开全局加载中
    * @return {*}
    * @lastEditors ZhenYuTsai
    */
@@ -21,7 +21,7 @@ export default (Vue) => {
   }
   /**
    * @author ZhenYuTsai
-   * @description 关闭全局遮罩
+   * @description 关闭全局加载中
    * @return {*}
    * @lastEditors ZhenYuTsai
    */
