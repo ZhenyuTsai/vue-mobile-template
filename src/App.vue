@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" :class="!$route.meta.hideTabBar?'tab-bar-eara':''">
     <router-view/>
-    <tab-bar></tab-bar>
+    <tab-bar v-if="!$route.meta.hideTabBar"></tab-bar>
   </div>
 </template>
 <script>
@@ -12,24 +12,8 @@ export default {
   }
 }
 </script>
-<style lang="less">
-#app {
-  margin-bottom: 80px;
-}
-
-#nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style lang="less" scoped>
+.tab-bar-eara{
+  margin-bottom: 100px;
 }
 </style>

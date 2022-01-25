@@ -12,7 +12,7 @@ module.exports = {
         parallel: true,
         sourceMap: false,
         terserOptions: {
-          warnings: false,
+          warnings: true,
           compress: {
             // 打包时删除console以及debugger，测试环境如需使用console或者debugger请改为false（不要直接删除）
             drop_console: true,
@@ -28,7 +28,7 @@ module.exports = {
         onEnd: {
           archive: [{
             source: './dist',
-            destination: `./dist/h5-vue-template-${process.VUE_CLI_SERVICE.mode}.tar.gz`,
+            destination: './dist/h5-vue-template.tar.gz',
             format: 'tar',
             options: {
               gzip: true,
