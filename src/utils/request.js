@@ -21,7 +21,7 @@ axios.interceptors.response.use(
   response => {
     const data = response.data
     if (data && data.code === 0) {
-      return response.data
+      return response.data.content
     } else if (data instanceof Blob) {
       return response.data
     } else {

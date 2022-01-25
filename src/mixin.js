@@ -29,7 +29,9 @@ export default (Vue) => {
     const loading = document.getElementById('loading')
     const app = document.getElementById('app')
     app.style.display = 'block'
-    document.body.removeChild(loading)
+    if (loading) {
+      document.body.removeChild(loading)
+    }
   }
   Vue.openLoading = openLoading
   Vue.prototype.openLoading = openLoading
