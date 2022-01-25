@@ -12,7 +12,7 @@ export const beforeEach = (to, from, next, Vue) => {
 }
 
 export const afterEach = (to, from, Vue) => {
-  if (to.name === 'error') {
+  if (to.name === 'Error') {
     Vue.closeLoading()
   }
 }

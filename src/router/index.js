@@ -20,7 +20,7 @@ const routes = [
   },
   {
     path: '*',
-    name: 'error',
+    name: 'Error',
     component: () => import(/* webpackChunkName: "error" */ '../views/error.vue'),
     meta: { wxAuth: true, title: '404' }
   }]

@@ -1,16 +1,19 @@
 <template>
-  <section class="tab-bar">
-    <van-icon name="wap-home-o" @click="$router.push('/')" :color="$route.path==='/'?'#1989fa':'inherit'"/>
-    <van-icon name="apps-o" @click="$router.push('/about')" :color="$route.path==='/about'?'#1989fa':'inherit'" />
-    <van-icon name="user-o" @click="$router.push('/test')" :color="$route.path==='/test'?'#1989fa':'inherit'" />
-  </section>
+  <van-tabbar class="tab-bar" route>
+    <van-tabbar-item :to="{name:'Home'}" icon="home-o">首页</van-tabbar-item>
+    <van-tabbar-item :to="{name:'About'}" icon="search">搜索</van-tabbar-item>
+    <van-tabbar-item :to="{name:'Error'}" icon="setting-o">设置</van-tabbar-item>
+  </van-tabbar>
 </template>
 
 <script>
-import { Icon } from 'vant'
+import { Tabbar, TabbarItem, Icon } from 'vant'
+
 export default {
   components: {
-    [Icon.name]: Icon
+    [Icon.name]: Icon,
+    [Tabbar.name]: Tabbar,
+    [TabbarItem.name]: TabbarItem
   }
 }
 </script>
